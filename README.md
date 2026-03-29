@@ -1,7 +1,7 @@
 # ie423-2025-2026-Term-Project-Proposal
 ## Team members
-- Begüm Acar 122203037
-- İrem Ural 121203037
+- Begüm Acar 
+- İrem Ural 
 - Gamze Kılıç 
-- Sercan Çavuş 122203045
-
+- Sercan Çavuş
+## Forecasting Global Food Insecurity Through Price Volatility
