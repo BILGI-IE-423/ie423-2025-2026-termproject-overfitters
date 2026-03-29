@@ -1,7 +1,7 @@
-# ie423-2025-2026-termproject-overfitters
-- Team members
-- Begüm Acar
-- İrem Ural
+# ie423-2025-2026-Termproject-Proposal
+## Team members
+- Begüm Acar 122203037
+- İrem Ural 121203037
 - Gamze Kılıç
-- Sercan Çavuş
+- Sercan Çavuş 122203045
 
