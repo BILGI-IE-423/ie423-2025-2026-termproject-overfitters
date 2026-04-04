@@ -2,7 +2,7 @@
 
 This directory contains the raw datasets and the processed outputs for the Global Food Crisis Early Warning System project. Although the CSV files are included in this repository, the original dataset links are also provided below for transparency and reproducibility. 
 
-## 1. WFP Global Food Prices
+## 1. WFP Global Food Prices Dataset
 * **Dataset Source:** Humanitarian Data Exchange (HDX) / World Food Programme (WFP)
 * **Dataset Link:** [Global WFP Food Prices](https://data.humdata.org/dataset/global-wfp-food-prices) (2016-2024)
 * **Description:** This dataset tracks monthly market prices for various food and non-food commodities across different markets globally. For this project, we utilize the data spanning from 2016 to 2024 to capture local price volatility and market shocks.
