@@ -12,7 +12,7 @@ This directory contains the raw datasets and the processed outputs for the Globa
 * **Dataset Source:** World Bank Data360 / Food and Agriculture Organization (FAO)
 * **Dataset Link:** [Prevalence of Moderate or Severe Food Insecurity](https://data360.worldbank.org/en/indicator/FAO_FS_210091)
 * **Description:** This dataset provides the prevalence of moderate or severe food insecurity in the total population (measured as a percentage) over a 3-year average. It serves as our macro-level vulnerability baseline for each country.
-* **File Name(s):** `FAO_FS_210091.csv`
+* **File Name:** `FAO_FS_210091.csv`
 
 ---
 
