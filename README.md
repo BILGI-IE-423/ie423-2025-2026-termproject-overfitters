@@ -13,10 +13,10 @@ The goal of this project is to develop an early warning system for food crises b
 ## Datasets
 
 **Dataset:** Global Food Prices (2016-2024)
-**Source:** https://data.humdata.org/dataset/global-wfp-food-prices
+- Source: https://data.humdata.org/dataset/global-wfp-food-prices
 
 **Dataset:** FAO Food Insecurity Dataset
-**Source:** https://data360.worldbank.org/en/indicator/FAO_FS_210091
+- Source: https://data360.worldbank.org/en/indicator/FAO_FS_210091
 
 ## Repository Structure
 ```text
