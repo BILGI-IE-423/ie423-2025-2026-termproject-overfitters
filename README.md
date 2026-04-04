@@ -2,7 +2,7 @@
 
 ## Team Members
 - Begüm Acar (122203037)
-- İrem Ural 
+- İrem Ural (121203037)
 - Gamze Kılıç 
 - Sercan Çavuş
 
