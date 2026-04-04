@@ -19,7 +19,7 @@ This directory contains the raw datasets and the processed outputs for the Globa
 ## Instructions for Reproducibility  
 
 ### Is Manual Download Needed?   
-**No manual download is required.** Since the individual CSV files are within GitHub's file size limits (~40 MB each), all raw datasets have been directly pushed to this repository to ensure immediate reproducibility.    
+**No manual download is required.** Since the individual CSV files are within GitHub's file size limits, all raw datasets have been directly pushed to this repository to ensure immediate reproducibility.    
 
 ### Where to Place the Files  
 If you are updating the dataset or pulling fresh data from the links provided above, ensure all downloaded `.csv` files are placed directly into the `data/raw/` directory.
