@@ -1,6 +1,5 @@
 # IE 423 Term Project Proposal — Global Food Crisis Early Warning System
 
----
 
 ## Team Information
 
