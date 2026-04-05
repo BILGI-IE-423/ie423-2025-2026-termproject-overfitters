@@ -64,31 +64,46 @@ Possible challenges include handling data sparsity (missing FAO scores for certa
 
 ## Preprocessing Steps
 
-### Step 1 — Loading the Data
-The datasets (9 WFP files and 1 FAO file) were loaded using pandas in `scripts/01_load_data.py`. We concatenated the WFP yearly files into a single massive dataframe to ensure continuous time-series analysis.
+- **Step 1 — Loading the Data**  
+  Using `scripts/01_load_data.py`, we loaded 9 yearly WFP food price files and 1 FAO food insecurity file with `pandas`.  
+  The WFP files were combined into a single dataset, while the FAO file was loaded separately for later merging.
 
-### Step 2 — Initial Inspection
-We checked:
-- the shape of the concatenated dataset
-- column names and data types
-- category distributions (identifying and removing "non-food" items)
-- missing values in critical columns (country, product, date, price)
+- **Step 2 — Initial Inspection**  
+  We examined the dataset structure by checking shapes, column names, and category distributions.  
+  This step helped us identify irrelevant entries such as `"non-food"` observations and detect missing values in key variables like `countryiso3`, `date`, `product`, and `price`.
 
-### Step 3 — Cleaning and Feature Engineering
-Using `scripts/02_preprocess_data.py`, we:
-- Cleaned strings (countryiso3, products) and converted dates to datetime objects.
-- Aggregated data to a monthly level (`wfp_monthly`), calculating mean, median, max, and std of prices.
-- Engineered time-series features: 1, 3, and 6-month price lags (`price_lag_x`).
-- Engineered rolling window features: 3 and 6-month rolling means and standard deviations to capture momentum and volatility.
-- Clipped extreme outliers in the 1-month percentage change feature.
-- **Target Creation:** Shifted the average price by -3 months to calculate `future_price_3m`. We dropped unresolved future dates (NaNs) and created a binary `crisis_label` (1 if future price surge >= 20%, else 0).
-- Merged the WFP monthly data with the median-aggregated FAO food insecurity scores using a left join on `countryiso3` and `year`.
-- Dropped intermediate columns to prevent data leakage.
+- **Step 3 — Cleaning the WFP Data**  
+  In `scripts/02_preprocess_data.py`, we selected the relevant WFP columns, renamed them into a consistent format, converted `date` to datetime and `price` to numeric, and removed rows with missing critical values.  
+  We also excluded the `"non-food"` category because it was not relevant to our food crisis detection objective.
 
-### Step 4 — Saving Processed Data
-The cleaned, merged, and feature-engineered dataset was saved to:
+- **Step 4 — Country-Level Filtering**  
+  To improve time-series consistency, we removed countries with fewer than 4 distinct years of WFP data.  
+  We also excluded countries with fragmented year coverage, since unstable temporal patterns would weaken lag and rolling-window calculations.
 
-`data/processed/processed_food_crisis_data.csv`
+- **Step 5 — Monthly Aggregation**  
+  The WFP data was aggregated to the monthly country-product level.  
+  For each country-product-month combination, we created summary variables including `avg_price`, `median_price`, `max_price`, `price_std`, and `obs_count`.
+
+- **Step 6 — Time Alignment and Feature Engineering**  
+  After aggregation, we aligned each country-product series to monthly frequency using `asfreq("MS")`.  
+  Then we generated lag features (`price_lag_1`, `price_lag_3`, `price_lag_6`), rolling statistics (`rolling_mean_3`, `rolling_mean_6`, `rolling_std_3`, `rolling_std_6`), percentage change (`pct_change_1m`), and volatility ratios (`volatility_ratio_3`, `volatility_ratio_6`).  
+  We also clipped extreme values in `pct_change_1m` to reduce the effect of outliers.
+
+- **Step 7 — Target Variable Creation**  
+  We created `future_price_3m` by shifting the average price 3 months ahead within each country-product group.  
+  Based on this value, we defined `crisis_label` as `1` if the future price increase was at least 20%, and `0` otherwise.  
+  Rows with unresolved future values were removed, and the temporary future-price column was dropped to prevent leakage.
+
+- **Step 8 — FAO Preparation and Merge**  
+  On the FAO side, we kept only observations corresponding to the total population, selected the relevant columns, and renamed them into a consistent structure.  
+  If multiple records existed for the same country-year pair, we used the median `food_insecurity_score`.  
+  The FAO dataset was then merged with the WFP monthly dataset using `countryiso3` and `year`.
+
+- **Step 9 — Final Filtering and Saving**  
+  After merging, we removed countries with insufficient FAO coverage, including countries with fewer than 4 matched FAO years and countries with no FAO score at all.  
+  Finally, we dropped rows with missing feature values and saved the processed dataset as:
+
+  `data/processed/processed_food_crisis_data.csv`
 
 ## Initial Outputs
 
