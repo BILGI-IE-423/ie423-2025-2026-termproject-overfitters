@@ -93,8 +93,8 @@ The cleaned, merged, and feature-engineered dataset was saved to:
 ## Initial Outputs
 
 ### Dataset Shape
-- **Raw WFP Shape:** Spans millions of rows across 2016-2024.
-- **Cleaned & Engineered Shape:** After monthly aggregation, NA dropping, and merging, the final `model_df` contains distinct monthly observations representing unique country-product pairs over time.
+- **Raw WFP Shape:** Contains approximately 2 million observations spanning from 2016 to 2024
+- **Cleaned & Engineered Shape:** After monthly aggregation,dynamic filtering, NA dropping and merging, the final `model_df` contains 67,564 observations across 62 countries.
 
 ### Missing Value Summary
 - Future dates where the 3-month forward price could not be observed were intentionally dropped to avoid labeling uncertainty.
