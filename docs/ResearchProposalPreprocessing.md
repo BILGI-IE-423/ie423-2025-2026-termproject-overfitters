@@ -1,10 +1,9 @@
 # IE 423 Term Project Proposal — Global Food Crisis Early Warning System
 
-<hr style="height:3px; border:none; background-color:#666;">
+---
 
 ## Team Information
 
----
 
 - Begüm Acar
 - İrem Ural
@@ -15,7 +14,6 @@
 
 ## Dataset Description
 
----
 
 We use two primary datasets for this project:
 
@@ -32,7 +30,6 @@ We selected these datasets because combining micro-level economic shocks (monthl
 
 ## Dataset Access
 
----
 
 The raw datasets are stored in:
 
@@ -49,7 +46,6 @@ Raw datasets can be downloaded from:
 
 ## Research Questions
 
----
 
 ### Research Question 1
 How does short-term price volatility (e.g., 3-month and 6-month rolling standard deviations) interact with baseline FAO food insecurity scores to precipitate sudden food crises in developing nations?
