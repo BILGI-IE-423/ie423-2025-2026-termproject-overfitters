@@ -3,7 +3,6 @@
 ---
 
 <hr style="height:3px; border:none; background-color:#666;">
-
 ## Team Information
 
 ---
