@@ -13,10 +13,10 @@ We use two primary datasets for this project:
 
 1. **Global Food Prices (2016-2024)**
    - **Source:** Humanitarian Data Exchange (WFP) - [Link](https://data.humdata.org/dataset/global-wfp-food-prices)
-   - **Description:** This dataset contains historical tracking of food prices for various commodities across different countries, collected by the World Food Programme. 
+   - **Description:** This datasets contains historical monthly food price data for various commodities across multiple countries and markets. It includes variables such as country, market, commodity type, price, unit, currency, and date, enabling the analysis of food price trends and sudden price fluctuations over time.  
 2. **FAO Food Insecurity Dataset**
    - **Source:** World Bank Data360 - [Link](https://data360.worldbank.org/en/indicator/FAO_FS_210091)
-   - **Description:** This dataset provides macro-level indicators of food insecurity, tracking the prevalence of food vulnerability at a country-year level.
+   - **Description:** This dataset provides country-level measurements of food insecurity, offering macro-level insights into population vulnerability. It tracks the prevalence of moderate or severe food insecurity, which estimates the percentage of people living in households classified as moderately or severely food insecure.
 
 We selected these datasets because combining micro-level economic shocks (monthly food prices) with macro-level vulnerability metrics (FAO food insecurity scores) allows us to explore meaningful patterns that precede humanitarian emergencies. The WFP dataset initially contains millions of rows across 9 years, which we aggregate into a robust panel dataset of monthly country-product observations.
 
