@@ -3,7 +3,7 @@
 ## Team Members
 - Begüm Acar (122203037)
 - İrem Ural (121203037)
-- Gamze Kılıç 
+- Gamze Kılıç (122203118)
 - Sercan Çavuş
 
 ## Project Objective
