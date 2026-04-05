@@ -52,9 +52,9 @@ Can we identify critical threshold values in short-term price fluctuations (1-mo
 
 ## Project Proposal
 
-This project aims to develop a Global Food Crisis Early Warning System by investigating the relationship between historical food price fluctuations and food insecurity indicators. 
+This project aims to develop a Machine Learning–based early warning system for global food crises by investigating the relationship between historical food price fluctuations and regional food insecurity prevalence. By understanding these patterns, we hope to anticipate potential crises and provide actionable insights for policymakers and humanitarian organizations. 
 
-First, we will clean and preprocess the raw datasets by handling missing values, filtering out non-food items, and standardizing geographic codes (countryiso3). We will aggregate the high-frequency price data into monthly summaries and engineer temporal features, including lag prices, rolling means, and volatility ratios. We will define our target variable (`crisis_label`) mathematically as a 20% or greater surge in a product's average price within a 3-month future window.
+First, we will clean and preprocess the raw datasets by handling missing values, filtering out non-food items, and standardizing geographic codes (countryiso3).). To ensure high-quality time-series analysis, a filtering mechanism will be implemented to exclude countries with fragmented timelines or insufficient historical data. We will aggregate the high-frequency price data into monthly summaries and engineer temporal features, including lag prices, rolling means, and volatility ratios. We will define our target variable (`crisis_label`) mathematically as a 20% or greater surge in a product's average price within a 3-month future window.The 20% threshold is adopted in alignment with WFP’s Alert Price Spikes (ALPS) methodology, which identifies such rapid escalations as 'Market Shocks' that fundamentally disrupt household purchasing power and food access.
 
 Then, we will conduct an exploratory data analysis (EDA) to understand the distribution of our crisis labels, price volatility across different years, and the correlation between FAO insecurity scores and price shocks. 
 
