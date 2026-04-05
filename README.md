@@ -4,7 +4,7 @@
 - Begüm Acar (122203037)
 - İrem Ural (121203037)
 - Gamze Kılıç (122203118)
-- Sercan Çavuş
+- Sercan Çavuş (122203045)
 
 ## Project Objective
 
