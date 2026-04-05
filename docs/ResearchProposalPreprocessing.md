@@ -1,6 +1,5 @@
 # IE 423 Term Project Proposal — Global Food Crisis Early Warning System
 
----
 <hr style="height:3px; border:none; background-color:#666;">
 
 ## Team Information
