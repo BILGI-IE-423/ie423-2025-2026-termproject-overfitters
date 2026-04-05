@@ -8,7 +8,7 @@
 
 ## Project Objective
 
-The goal of this project is to develop an early warning system for food crises by integrating historical global food price data with food insecurity indicators. By analyzing these datasets together, we aim to identify regions at risk of rising food insecurity, detect early signs of potential crises, and provide actionable insights for policymakers and humanitarian organizations to mitigate the impact on vulnerable populations.
+The objective of this project is to develop a Machine Learning–based early warning system for global food crises by combining food price data from WFP with a baseline food insecurity indicator from FAO. By analyzing historical trends, seasonal patterns, and sudden price fluctuations, the model aims to identify regions at risk of increasing food insecurity and predict major price surges up to three months in advance. This early detection system is designed to support policymakers, humanitarian organizations, and international agencies in making proactive decisions, allocating resources efficiently, and implementing preventive measures before food shortages escalate into large-scale humanitarian crises.
 
 ## Datasets
 
