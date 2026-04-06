@@ -47,23 +47,23 @@ Raw datasets can be downloaded from:
 
 
 ### Research Question 1
-How does short-term price volatility (e.g., 3-month and 6-month rolling standard deviations) interact with baseline FAO food insecurity scores to precipitate sudden food crises in developing nations?
+Which countries and food products experience the highest price volatility, and are these patterns seasonal?
 
-**Explanation:** Gradual price increases are common due to standard inflation, but hyper-volatility combined with high baseline insecurity might be the true trigger for a systemic crisis. By analyzing our engineered features like `volatility_ratio_3` and `volatility_ratio_6` alongside the `food_insecurity_score`, we aim to determine if volatile markets disproportionately trigger the `crisis_label` (a >= 20% price surge within 3 months) in regions that are already vulnerable, offering a more nuanced warning than simple price thresholds.
+**Explanation:** Before building a forecasting model, it is crucial to understand fundamental market behaviors in different regions. While some volatility is natural and stems from recurring agricultural cycles (e.g., harvest seasons), anomalous volatility may indicate systemic supply chain problems. Using our engineered features such as rounded standard deviations and volatility rates, along with the monthly variable, this question aims to reveal whether specific staple food commodities (such as grains and fresh produce) or specific countries are inherently more unstable. This exploratory analysis will help us differentiate between expected seasonal price volatility and actual market anomalies.
 
 ---
 
 ### Research Question 2
-Are specific staple commodities (e.g., local grains vs. imported wheat) leading indicators of a broader regional food crisis, and does their predictive power vary significantly across different countries?
+Using past price movements and a country's current food insecurity score, can a food price crisis in a country be predicted 3 months in advance?
 
-**Explanation:** Not all food price spikes trigger a crisis; regional and cultural reliance on specific staples dictates vulnerability. This question explores whether tracking a subset of critical, high-impact products yields higher predictive accuracy for upcoming food crises than aggregating all food items. Answering this can help policymakers build more resource-efficient and targeted monitoring systems.
+**Explanation:** This is a key forecasting modeling objective of our early warning system. Past price movements capture the economic momentum of a product, while the FAO food insecurity score provides the context of macro-level vulnerability in the region. By combining these micro and macro indicators, we aim to train classification models to predict the crisis label we define (a price increase of 20% or more within the next 3 months). Answering this question will provide historical data with an actionable head start for humanitarian interventions before a crisis fully materializes.
 
 ---
 
 ### Research Question 3
-Can we identify critical threshold values in short-term price fluctuations (1-month percentage changes) that consistently precede a 20% future price surge?
+What are the most effective factors in determining crisis risk: product type, country vulnerability, or seasonality?
 
-**Explanation:** For an early warning system to be actionable, humanitarian organizations need concrete triggers. By examining the `pct_change_1m` alongside historical lag features, we want to mathematically pinpoint the "point of no return" where a short-term trend becomes a full-blown crisis.
+**Explanation:** A high-performance model is only partially useful if it acts like a black box; interpretability is crucial for policymakers. By analyzing the feature importance outputs of our machine learning models, this question aims to identify the underlying drivers of food crises. We want to explore whether a country's underlying vulnerability (FAO score) outweighs market momentum (price lags/fluctuations) or whether specific product types are universal triggers regardless of country. Understanding which variables carry the greatest weight will allow organizations to allocate monitoring resources more effectively.
 
 ---
 
