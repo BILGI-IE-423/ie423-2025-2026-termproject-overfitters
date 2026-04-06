@@ -105,7 +105,7 @@ Possible challenges include handling data sparsity (missing FAO scores for certa
 ---
 
 - **Step 4 — Country-Level Filtering**  
-  To improve time-series consistency, we removed countries with fewer than 4 distinct years of WFP data.  
+  Continuing in `scripts/02_preprocess_data.py` to improve time-series consistency, we removed countries with fewer than 4 distinct years of WFP data.  
   We also excluded countries with fragmented year coverage, since unstable temporal patterns would weaken lag and rolling-window calculations.
 
 ---
@@ -138,7 +138,7 @@ Possible challenges include handling data sparsity (missing FAO scores for certa
 ---
 
 - **Step 9 — Final Filtering and Saving**  
-  After merging, we removed countries with insufficient FAO coverage, including countries with fewer than 4 matched FAO years and countries with no FAO score at all.  
+  After merging in `scripts/02_preprocess_data.py`, we removed countries with insufficient FAO coverage, including countries with fewer than 4 matched FAO years and countries with no FAO score at all.  
   Finally, we dropped rows with missing feature values and saved the processed dataset as:
 
   `data/processed/processed_food_crisis_data.csv`
