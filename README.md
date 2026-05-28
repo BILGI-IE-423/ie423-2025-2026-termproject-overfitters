@@ -8,10 +8,16 @@ Website: https://iremmural.github.io/ie423-2025-2026-termproject-overfitters/
 - Sercan Çavuş (122203045)
 
 
-
 ## Project Objective
 
 The objective of this project is to develop a Machine Learning–based early warning system for global food crises by combining food price data from WFP with a baseline food insecurity indicator from FAO. By analyzing historical trends, seasonal patterns, and sudden price fluctuations, the model aims to identify regions at risk of increasing food insecurity and predict major price surges up to three months in advance. This early detection system is designed to support policymakers, humanitarian organizations, and international agencies in making proactive decisions, allocating resources efficiently, and implementing preventive measures before food shortages escalate into large-scale humanitarian crises.
+
+## Research Questions
+
+- **RQ1** — Which countries and food products experience the highest price volatility — and are these patterns seasonal?
+- **RQ2** — Can a food price crisis be predicted 3 months in advance using past price movements and food insecurity scores?
+- **RQ3** — What factors drive crisis risk most — product type, country vulnerability, or seasonality?
+
 
 ## Datasets
 
@@ -34,24 +40,30 @@ The objective of this project is to develop a Machine Learning–based early war
 │   ├── 01_load_data.py        → verifies file paths and imports data
 │   ├── 02_preprocess_data.py  → handles missing values, merges, and creates features
 │   ├── 03_basic_eda.py        → creates visualizations and statistical summaries
-│   ├── 04_baseline_model.py   →
-│   └── 05_shap_analysis.py    →
-├── outputs/
+│   ├── 04_baseline_model.py   → trains and evaluates the baseline ML model
+│   └── 05_shap_analysis.py    → generates SHAP feature importance explanations
+├── visuals/
 │   ├── figures/               → generated charts and graphs
 │   └── tables/                → generated tables
-└── docs/
-    └── ResearchProposalPreprocessing.md   → detailed project proposal file
+
 ```
 ## Installation
 ```bash
 pip install -r requirements.txt
 ```
 ## Running the Project
+Run scripts in order:
 ```bash
 python scripts/01_load_data.py
 python scripts/02_preprocess_data.py
 python scripts/03_basic_eda.py
+python scripts/04_baseline_model.py
+python scripts/05_shap_analysis.py
 ```
-## Main Proposal File
-See: [docs/ResearchProposalPreprocessing.md](docs/ResearchProposalPreprocessing.md)
+## Conclusion
+
+Food price crises leave detectable traces in price data weeks before they materialize at household level. By combining WFP price dynamics with FAO vulnerability scores and applying temporal machine learning, we can raise an alarm 3 months in advance with meaningful accuracy.
+
+XGBoost (tuned) delivered the strongest performance on both validation and test sets. SHAP analysis confirmed that the model's logic is consistent with domain knowledge — lag prices and volatility are the primary drivers, with country vulnerability as an amplifier — making it potentially deployable in a real humanitarian monitoring context.
+
 
