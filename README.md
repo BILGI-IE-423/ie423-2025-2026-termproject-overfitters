@@ -16,7 +16,7 @@ The objective of this project is to develop a Machine Learning–based early war
 
 - **RQ1** — Which countries and food products experience the highest price volatility — and are these patterns seasonal?
 - **RQ2** — Can a food price crisis be predicted 3 months in advance using past price movements and food insecurity scores?
-- **RQ3** — What factors drive crisis risk most — product type, country vulnerability, or seasonality?
+- **RQ3** — What factors drive crisis risk most —  country vulnerability, or seasonality?
 
 
 ## Datasets
