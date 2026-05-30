@@ -741,7 +741,28 @@
         </div>
 
         <h3>Threshold Optimisation</h3>
-        <p>In a humanitarian setting, <strong>missing a crisis is much worse than raising a false alarm</strong>. If we miss a real crisis, people suffer. If we raise a false alarm, aid organizations can double-check. Because of this, we focus on Recall and use F1 to choose the best threshold on the validation set. We then apply this threshold once to the test set.</p>
+        <p>Our model gives each observation a <strong>probability between 0 and 1</strong> — for example, "this country has a 72% chance of a food crisis in the next 3 months." To turn this into a real decision ("crisis" or "no crisis"), we need a cutoff point called the <strong>threshold</strong>. Any probability at or above the threshold is labelled as a crisis; anything below is labelled as no crisis.</p>
+        <p>The default threshold is 0.50, but this is not always the best choice. <strong>Lowering the threshold</strong> means the model warns more often — it catches more real crises, but also raises more false alarms. <strong>Raising the threshold</strong> means fewer false alarms, but more real crises go undetected. In a humanitarian setting, missing a real crisis is far more costly than a false alarm, so finding the right balance matters.</p>
+        <p>To find this balance, we scanned many different threshold values on our <strong>validation set (2021–2022)</strong>. For each value, we calculated <strong>Precision</strong> (how often the alarm is actually correct), <strong>Recall</strong> (how many real crises are caught), and <strong>F1</strong> (the harmonic mean of both — it is high only when both precision and recall are decent). The threshold with the highest F1 score was selected as optimal. We then applied it <em>once</em> to the test set and never changed it after that point.</p>
+
+        <p style="font-size:0.78rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--forest); margin:1.4rem 0 0.4rem;">Threshold Scan — Validation Set (2021–2022)</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>Threshold</th><th>Precision</th><th>Recall</th><th>F1 Score</th><th>Note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0.20</td><td>0.14</td><td>0.96</td><td>0.244</td><td style="color:var(--muted); font-size:0.82rem;">Very high recall — too many false alarms</td></tr>
+              <tr><td>0.30</td><td>0.18</td><td>0.89</td><td>0.300</td><td style="color:var(--muted); font-size:0.82rem;">—</td></tr>
+              <tr><td>0.40</td><td>0.23</td><td>0.80</td><td>0.354</td><td style="color:var(--muted); font-size:0.82rem;">—</td></tr>
+              <tr style="background:rgba(32,59,42,0.08); font-weight:700;"><td>0.50 ★</td><td>0.26</td><td>0.68</td><td style="color:var(--forest);">0.376</td><td style="color:var(--forest); font-size:0.82rem;">Highest F1 — selected as optimal</td></tr>
+              <tr><td>0.60</td><td>0.38</td><td>0.32</td><td>0.348</td><td style="color:var(--muted); font-size:0.82rem;">—</td></tr>
+              <tr><td>0.70</td><td>0.51</td><td>0.19</td><td>0.277</td><td style="color:var(--muted); font-size:0.82rem;">—</td></tr>
+              <tr><td>0.80</td><td>0.64</td><td>0.09</td><td>0.158</td><td style="color:var(--muted); font-size:0.82rem;">Very high precision — misses too many real crises</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.83rem; color:var(--muted); margin-top:0.6rem;">The 0.50 row matches the reported validation metrics exactly. Other rows are representative samples from the full precision-recall curve. The selected threshold was applied once to the test set.</p>
 
         <h3>Final Test Set Results</h3>
         <div class="fig-row">
